@@ -1,0 +1,134 @@
+<div class="mx-auto bg-grey-lightest">
+    <!--Screen-->
+    <div class="min-h-screen flex flex-col">
+        <!--Header Section Starts Here-->
+        <header class="bg-nav">
+            <div class="flex justify-between">
+                <div class="p-1 mx-3 inline-flex items-center">
+                    <i class="fas fa-bars pr-2 text-white" onclick="sidebarToggle()"></i>
+                    <h1 class="text-white p-2">Logo</h1>
+                </div>
+                <div class="p-1 flex flex-row items-center">
+                    <img onclick="profileToggle()" class="inline-block h-8 w-8 rounded-full"
+                        src="https://bizweb.dktcdn.net/100/307/433/articles/87126502-2509242206005371-2073523065622364160-n.jpg?v=1627806241047"
+                        alt="">
+                    <a href="#" onclick="profileToggle()"
+                        class="text-white p-2 no-underline hidden md:block lg:block">La Toản</a>
+                    <div id="ProfileDropDown" class="rounded hidden shadow-md bg-white absolute pin-t mt-12 mr-1 pin-r">
+                        <ul class="list-reset">
+                            <li><a href="#" class="no-underline px-4 py-2 block text-black hover:bg-grey-light">My
+                                    account</a></li>
+                            <li><a href="#"
+                                    class="no-underline px-4 py-2 block text-black hover:bg-grey-light">Notifications</a>
+                            </li>
+                            <li>
+                                <hr class="border-t mx-2 border-grey-ligght">
+                            </li>
+                            <li><a href="#"
+                                    class="no-underline px-4 py-2 block text-black hover:bg-grey-light">Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!--/Header-->
+
+        <div class="flex flex-1">
+            <!--Sidebar-->
+            <aside id="sidebar"
+                class="bg-side-nav w-1/2 md:w-1/6 lg:w-1/6 border-r border-side-nav hidden md:block lg:block">
+                <div class="flex">
+
+                </div>
+                <ul class="list-reset flex flex-col">
+
+                    <li class="w-full h-full py-3 px-2 border-b border-light-border bg-white">
+                        <a routerLink="admin"
+                            class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
+                            <i class="fas fa-table float-left mx-2"></i>
+                            Product
+                        </a>
+                    </li>
+
+                    <li class="w-full h-full py-3 px-2 border-b border-300-border">
+                        <a href="modals.html"
+                            class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
+                            <i class="fas fa-square-full float-left mx-2"></i>
+                            Category
+                        </a>
+                    </li>
+
+                </ul>
+
+            </aside>
+            <!--/Sidebar-->
+            <!--Main-->
+            <main class="bg-white-500 flex-1 p-3 overflow-hidden">
+
+                <div class="flex flex-col">
+
+                    <!--Grid Form-->
+
+                    <div class="flex flex-1  flex-col md:flex-row lg:flex-row mx-2">
+                        <div class="mb-2 border-solid border-gray-300 rounded border shadow-sm w-full">
+                            <div class="bg-gray-200 px-2 py-3 border-solid border-gray-200 border-b">
+                                Product
+                            </div>
+                            <div class="p-3">
+                                <a routerLink="product-create"><button style="margin-bottom:15px;"
+                                        class="bg-transparent hover:bg-green-500 text-green-dark font-semibold hover:text-white py-2 px-4 border border-green hover:border-transparent rounded">
+                                        Add product
+                                    </button></a>
+                                <table class="table-responsive w-full rounded">
+                                    <thead>
+                                        <tr style="text-align: center;">
+                                            <th class="border w-1/4 px-4 py-2">Product Name</th>
+                                            <th class="border w-1/6 px-4 py-2">Price</th>
+                                            <th class="border w-1/6 px-4 py-2">Images</th>
+                                            <th class="border w-1/6 px-4 py-2">Desc</th>
+                                            <th class="border w-1/7 px-4 py-2">Status</th>
+                                            <th class="border w-1/5 px-4 py-2">Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr style="text-align: center;line-height: 65px;" *ngFor="let item of products">
+                                            <td class="border px-4 py-2">{{item.name}}</td>
+                                            <td class="border px-4 py-2">{{item.price}} đ</td>
+                                            <td class="border px-4 py-2"><img
+                                                    style="width: 50px;margin: auto;margin-bottom: -30px;"
+                                                    src="{{item.image}}" alt=""></td>
+                                            <td class="border px-4 py-2">{{item.desc}}</td>
+                                            <td class="border px-4 py-2">
+                                                <i class="fas fa-check text-green-500 mx-2"></i>
+                                            </td>
+                                            <td class="border px-4 py-2">
+                                                <a class="bg-teal-300 cursor-pointer rounded p-1 mx-1 text-white">
+                                                    <i class="fas fa-eye"></i></a>
+                                                <a class="bg-teal-300 cursor-pointer rounded p-1 mx-1 text-white"
+                                                    routerLink="edit/{{item.id}}">
+                                                    <i class="fas fa-edit"></i></a>
+                                                <a class="bg-teal-300 cursor-pointer rounded p-1 mx-1 text-red-500"
+                                                    (click)="onDelete(item.id)">
+                                                    <i class="fas fa-trash"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/Grid Form-->
+                </div>
+            </main>
+            <!--/Main-->
+        </div>
+        <!--Footer-->
+        <footer class="bg-grey-darkest text-white p-2">
+            <div class="flex flex-1 mx-auto">&copy; My Design</div>
+        </footer>
+        <!--/footer-->
+
+    </div>
+
+</div>
