@@ -10,18 +10,18 @@
                             <div id="container">
                                 <div id="products_example">
                                     <div id="products">
-                                        <img src="https://cf.shopee.vn/file/7e07f670fe59ab60d9342f737202f026" alt="">
+                                        <img [src]="product.image" alt="">
 
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="desc span_3_of_2">
-                            <h2>Lorem Ipsum is simply dummy text </h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                incididunt ut labore.</p>
+                            <h2 style="font-size: 30px;">{{product.name}}</h2>
+                            <p>{{product.desc}}</p>
                             <div class="price">
-                                <p>Price: <span>$500</span></p>
+                                <p style="font-size: 25px;">Price: <span style="font-size: 20px;">{{product.price}}
+                                        đ</span></p>
                             </div>
                             <form class="available">
                                 <p>Available Options :</p>
@@ -70,7 +70,7 @@
                     </div>
                     <div class="section group">
                         <div class="grid_1_of_4 images_1_of_4">
-                            <a href="#"><img src="https://picsum.photos/200/300" alt=""></a>
+                            <a href="#"><img style="margin-bottom: 5px;" src="https://picsum.photos/200/300" alt=""></a>
                             <div class="price" style="border:none">
                                 <div class="add-cart" style="float:none">
                                     <h4><a href="#">Add to Cart</a></h4>
@@ -79,7 +79,7 @@
                             </div>
                         </div>
                         <div class="grid_1_of_4 images_1_of_4">
-                            <a href="#"><img src="https://picsum.photos/200/300" alt=""></a>
+                            <a href="#"><img style="margin-bottom: 5px;" src="https://picsum.photos/200/300" alt=""></a>
                             <div class="price" style="border:none">
                                 <div class="add-cart" style="float:none">
                                     <h4><a href="#">Add to Cart</a></h4>
@@ -88,7 +88,7 @@
                             </div>
                         </div>
                         <div class="grid_1_of_4 images_1_of_4">
-                            <a href="#"><img src="https://picsum.photos/200/300" alt=""></a>
+                            <a href="#"><img style="margin-bottom: 5px;" src="https://picsum.photos/200/300" alt=""></a>
                             <div class="price" style="border:none">
                                 <div class="add-cart" style="float:none">
                                     <h4><a href="#">Add to Cart</a></h4>
@@ -97,7 +97,7 @@
                             </div>
                         </div>
                         <div class="grid_1_of_4 images_1_of_4">
-                            <img src="https://picsum.photos/200/300" alt="">
+                            <a href="#"><img style="margin-bottom: 5px;" src="https://picsum.photos/200/300" alt=""></a>
                             <div class="price" style="border:none">
                                 <div class="add-cart" style="float:none">
                                     <h4><a href="#">Add to Cart</a></h4>
@@ -105,6 +105,7 @@
                                 <div class="clear"></div>
                             </div>
                         </div>
+
                     </div>
                 </div>
                 <div class="rightsidebar span_3_of_1">

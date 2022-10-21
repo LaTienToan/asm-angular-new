@@ -15,7 +15,7 @@ export class HomeAdminComponent implements OnInit {
   products: IProducts[] = []
 
   ngOnInit(): void {
-    this.ser.getProduct().subscribe(data => {
+    this.ser.getProduct(10).subscribe(data => {
       this.products = data
       console.log(data);
 
